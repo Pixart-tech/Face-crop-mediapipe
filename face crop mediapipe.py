@@ -8,8 +8,10 @@ from mediapipe.python._framework_bindings import image as mp_image_module
 from mediapipe.python._framework_bindings import image_frame as mp_image_frame_module
 
 # Jawline indices (left ear → chin → right ear)
-JAWLINE_IDS = [212, 93, 132, 58, 172, 136, 150, 176, 149, 152,
-    377, 400, 378, 379, 365, 397, 288, 323, 432]
+# Tweaked to keep cheek volume near the ears so the mask does not
+# carve triangular gaps beside the jawline.
+JAWLINE_IDS = [214, 212, 93, 127, 132, 58, 172, 136, 150, 176, 149,
+    152, 377, 400, 378, 379, 365, 397, 288, 361, 433, 432]
 
 MPImage = mp_image_module.Image
 MPImageFormat = mp_image_frame_module.ImageFormat
